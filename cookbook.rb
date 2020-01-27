@@ -1,5 +1,5 @@
-require "csv"
-require_relative "recipe"
+require 'csv'
+require_relative 'recipe'
 
 class Cookbook
   def initialize(csv_file)
@@ -24,14 +24,14 @@ class Cookbook
   end
 
   def all
-    return @recipes
+    @recipes
   end
 
   private
 
   def load_csv
     CSV.foreach(@csv_file) do |row|
-      @recipes << Recipe.new(row[0], row[1], row[2], row[3], row[4] == "true")
+      @recipes << Recipe.new(row[0], row[1], row[2], row[3], row[4] == 'true')
     end
   end
 

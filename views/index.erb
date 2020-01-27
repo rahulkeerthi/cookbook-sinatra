@@ -1,0 +1,13 @@
+<p>
+<ul>
+  <% counter = 0 %>
+  <% @recipes.each_with_index do |recipe, index| %>
+  <li>
+    <%= "#{index + 1}. [ #{recipe.completed == true ? 'X' : ' '} ] #{recipe.name} - " %><a href="/<%=index%>"/><strong>(delete)</strong></a>
+    <br><%= "    #{recipe.description}" %>
+    <br><%= "   #{recipe.prep_time} / #{recipe.difficulty}" %>
+  </li>
+  <% end %>
+</ul>
+</p>
+<a href="/new">Create!</a>
